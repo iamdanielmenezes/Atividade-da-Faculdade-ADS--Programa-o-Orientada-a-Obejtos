@@ -1,9 +1,15 @@
 package app;
 
+import entities.Chamado;
+import entities.Computador;
+import entities.Tecnico;
+
 public class Application {
 
 	public static void main(String[] args) {
 
+		/*------------ Missão 1 ------------*/
+		
 		String nomeSistema = "IT Solutions System";
 		double versao = 2.0;
 		String nomeTecnico = "Daniel Menezes";
@@ -28,23 +34,38 @@ public class Application {
 			System.out.println("Sistema não ativo");
 		}
 		
+		System.out.println();
+		
+		/*------------ Missão 2 ------------*/
+		
 		Computador pc1 = new Computador();
 		Computador pc2 = new Computador();
 		
-		pc1.cliente = "João silva";
-		pc1.patrimonio = "PC-01";
-		pc1.modelo = "Notebook Samsung Intel Celeron";
-		pc1.sistemaOperacional = "Windows 10";
+		pc1.setCliente("João silva");
+		pc1.setPatrimonio("PC-01");
+		pc1.setModelo("Notebook Samsung Intel Celeron");
+		pc1.setSistemaOperacional("Windowns 10");
 		
-		pc2.cliente = "Maria Ferreira";
-		pc2.patrimonio = "PC-02";
-		pc2.modelo = "Computador Gamer I7";
-		pc2.sistemaOperacional = "Windows 11";
+		pc2.setCliente("Maria Ferreira");
+		pc2.setPatrimonio("PC-02");
+		pc2.setModelo("Computador Gamer I7");
+		pc2.setSistemaOperacional("Windows 11");
 		
 		System.out.println(pc1);
 		pc1.ligar();
 		System.out.println();
 		System.out.println(pc2);
 		pc2.desligar();
+		
+		System.out.println();
+		
+		/*------------ Missão 3 ------------*/
+		
+		Computador pc = new Computador("João Silva", "PC-001", "Notebook Samsung Intel Celeron", "Windowns 10");
+		
+		Tecnico tecnico = new Tecnico("Daniel Menezes", "Hardware");
+		
+		Chamado chamado = new Chamado(123, "Limpeza da placa", "Em manutenção", pc, tecnico);
+		System.out.println(chamado);
 	}
 }
