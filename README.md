@@ -22,50 +22,99 @@ O projeto foi desenvolvido gradualmente, dividido em **5 missões**, com commits
 
 ## Sobre a atividade
 
-O cenário proposto é o de uma empresa fictícia chamada **IT Solutions**, responsável pelo atendimento e suporte de informática de outras empresas.
+A atividade, intitulada **"Operação IT: Reconstruindo o Sistema de Suporte de TI"**, apresenta o cenário de uma empresa fictícia chamada **IT Solutions**, responsável pelo atendimento e suporte de informática de diversas empresas.
 
-Após uma falha comprometer seu sistema, a equipe de desenvolvimento precisa reconstruir uma versão simplificada da aplicação, utilizando Java e os conceitos de POO.
+Após uma falha grave comprometer o sistema utilizado pelos técnicos para registrar computadores, usuários e chamados de suporte, a equipe de desenvolvimento recebe a missão de reconstruir uma versão simplificada do sistema.
 
-O desenvolvimento foi dividido nas seguintes missões:
+O desenvolvimento é dividido em cinco missões, cada uma abordando conceitos estudados na disciplina de Programação Orientada a Objetos, relacionando teoria e prática.
+
+## Missões
 
 ### Missão 1 — Inicialização do Sistema
 
-Criar um programa Java responsável por apresentar informações básicas do sistema, como nome, versão, técnico responsável, quantidade de chamados abertos e status de funcionamento.
+Desenvolver o módulo responsável pela identificação inicial do sistema, verificando o funcionamento do ambiente Java.
 
-Também foi necessário utilizar estruturas condicionais para verificar se existem chamados aguardando atendimento.
+**Requisitos:**
+
+- Criar um programa Java chamado `SistemaSuporte.java`, contendo o método `main`.
+- Armazenar o nome do sistema, versão, nome do técnico, quantidade de chamados abertos e status do sistema.
+- Utilizar variáveis com tipos de dados adequados.
+- Apresentar as informações no console.
+- Implementar estruturas condicionais para verificar a quantidade de chamados abertos.
+
+Caso existam chamados abertos, o programa deverá apresentar a mensagem `"Existem chamados aguardando atendimento"`. Caso contrário, deverá apresentar `"Nenhum chamado pendente"`.
 
 ### Missão 2 — Transformando Dados em Objetos
 
-Criar a classe `Computador`, representando os equipamentos cadastrados na empresa.
+Aplicar os conceitos iniciais de Programação Orientada a Objetos, representando um computador como um objeto do sistema.
 
-A classe deve possuir informações como patrimônio, modelo, sistema operacional e estado de funcionamento, além de métodos para ligar, desligar e exibir informações.
+**Requisitos:**
 
-Nesta etapa, o objetivo foi começar a trabalhar com classes, objetos, atributos e métodos.
+- Criar uma classe chamada `Computador`.
+- Implementar os atributos:
+  - `String patrimonio`
+  - `String modelo`
+  - `String sistemaOperacional`
+  - `boolean ligado`
+- Criar os métodos:
+  - `ligar()`
+  - `desligar()`
+  - `exibirInformacoes()`
+- Criar uma classe `Principal` contendo o método `main`.
+- Instanciar dois objetos da classe `Computador`, atribuindo valores diferentes aos seus atributos.
+- Executar os métodos dos objetos e apresentar suas informações.
 
-### Missão 3 — Protegendo os Dados
+### Missão 3 — Protegendo os Dados da IT Solutions
 
-Aplicar **encapsulamento** aos atributos da classe `Computador`, utilizando modificadores de acesso e métodos getters e setters.
+Aplicar encapsulamento para proteger os atributos dos objetos e estabelecer relacionamentos entre diferentes classes do sistema.
 
-Também foram introduzidas as classes `Tecnico` e `Chamado`, permitindo relacionar um chamado de suporte a um computador e a um técnico responsável.
+**Requisitos:**
+
+- Modificar a classe `Computador`, tornando seus atributos `private`.
+- Implementar métodos getters e setters para acessar e modificar os dados.
+- Criar uma classe `Tecnico` com os atributos:
+  - `private String nome`
+  - `private String especialidade`
+- Criar uma classe `Chamado` com os atributos:
+  - `private int numero`
+  - `private String descricao`
+  - `private String status`
+  - `private Computador computador`
+  - `private Tecnico tecnico`
+- Relacionar um chamado de suporte a um computador e a um técnico responsável.
+- Instanciar os objetos na classe principal e apresentar as informações completas do chamado.
 
 ### Missão 4 — Criando uma Equipe Especializada
 
-Implementar **herança, interfaces e polimorfismo**.
+Implementar os conceitos de **herança, interfaces e polimorfismo**, permitindo que diferentes tipos de técnicos realizem atendimentos de acordo com suas especialidades.
 
-A classe `Tecnico` passa a ser utilizada como classe base para duas subclasses:
+**Requisitos:**
 
-- `TecnicoHardware`
-- `TecnicoSoftware`
-
-Também foi criada a interface `Atendimento`, com o método `realizarAtendimento()`, permitindo que cada tipo de técnico apresente um comportamento diferente.
+- Transformar `Tecnico` em uma classe base.
+- Criar duas subclasses que herdam de `Tecnico`:
+  - `TecnicoHardware`
+  - `TecnicoSoftware`
+- Criar uma interface chamada `Atendimento`.
+- Declarar na interface o método `void realizarAtendimento()`.
+- Fazer com que as subclasses implementem a interface, apresentando comportamentos diferentes para cada tipo de atendimento.
+- Demonstrar o polimorfismo na classe principal, utilizando referências da classe pai para executar os métodos dos objetos das subclasses.
 
 ### Missão 5 — Protocolo de Segurança do Sistema
 
-Implementar um contador estático para controlar a quantidade de chamados criados.
+Implementar mecanismos para tornar o sistema mais robusto, tratando entradas inválidas e controlando automaticamente a quantidade de chamados cadastrados.
 
-Também foi necessário utilizar `Scanner` para receber o número de um chamado informado pelo usuário e implementar tratamento de exceções com `try/catch`.
+**Requisitos:**
 
-Nesta etapa, foram cadastrados chamados para permitir a busca por número, exibindo suas informações quando encontrados ou uma mensagem caso não existam.
+- Criar na classe `Chamado` o atributo estático:
+
+  `private static int totalChamados = 0;`
+
+- Incrementar automaticamente o contador sempre que um novo objeto `Chamado` for criado.
+- Criar um método estático para consultar o total de chamados.
+- Utilizar `Scanner` para permitir que o usuário informe o número de um chamado pelo teclado.
+- Implementar tratamento de exceções utilizando `try` e `catch`, evitando que entradas inválidas interrompam a execução do programa.
+- Criar pelo menos três chamados no sistema.
+- Apresentar ao final da execução a quantidade total de chamados cadastrados.
 
 ## Tecnologias utilizadas
 
@@ -81,5 +130,3 @@ Por se tratar de uma atividade acadêmica, o foco não foi desenvolver um sistem
 ---
 
 **Projeto acadêmico desenvolvido para fins de estudo e prática.**
-
-**Desenvolvido por [Daniel Menezes](https://github.com/iamdanielmenezes).**
