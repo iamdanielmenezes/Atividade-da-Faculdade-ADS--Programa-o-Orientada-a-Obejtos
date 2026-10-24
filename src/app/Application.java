@@ -3,6 +3,8 @@ package app;
 import entities.Chamado;
 import entities.Computador;
 import entities.Tecnico;
+import entities.TecnicoHardware;
+import entities.TecnicoSoftware;
 
 public class Application {
 
@@ -67,5 +69,21 @@ public class Application {
 		
 		Chamado chamado = new Chamado(123, "Limpeza da placa", "Em manutenção", pc, tecnico);
 		System.out.println(chamado);
+		
+		System.out.println();
+		
+		/*------------ Missão 4 ------------*/
+		
+		Tecnico tec1 = new TecnicoHardware("Daniel Menezes", "Hardware");
+		Tecnico tec2 = new TecnicoSoftware("João Silva", "Software");
+
+		System.out.println(tec1);
+		tec1.realizarAtendimento();
+		System.out.println(tec2);
+		tec2.realizarAtendimento();
+		
+		System.out.println();
+		
+		/*------------ Missão 5 ------------*/
 	}
 }

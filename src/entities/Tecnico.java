@@ -1,6 +1,6 @@
 package entities;
 
-public class Tecnico {
+public class Tecnico implements Atendimento {
 
 	private String nome;
 	private String especialidade;
@@ -9,7 +9,6 @@ public class Tecnico {
 	}
 	
 	public Tecnico(String nome, String especialidade) {
-		super();
 		this.nome = nome;
 		this.especialidade = especialidade;
 	}
@@ -28,5 +27,10 @@ public class Tecnico {
 
 	public void setEspecialidade(String especialidade) {
 		this.especialidade = especialidade;
+	}
+
+	@Override
+	public void realizarAtendimento() {
+		
 	}
 }

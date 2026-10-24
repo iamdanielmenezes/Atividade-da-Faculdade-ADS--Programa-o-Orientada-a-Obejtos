@@ -60,6 +60,4 @@ public class Chamado {
 				+ "\nComputador: " + computador.getPatrimonio()
 				+ "\nTécnico: " + tecnico.getNome() + ", Especialidade: " + tecnico.getEspecialidade();
 	}
-	
-	
 }
