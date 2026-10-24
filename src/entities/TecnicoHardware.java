@@ -16,5 +16,4 @@ public class TecnicoHardware extends Tecnico {
 		return "Tecnico: " + super.getNome()
 				+ "\nEspecialidade: " + super.getEspecialidade();
 	}
-
 }

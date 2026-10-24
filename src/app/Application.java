@@ -1,5 +1,8 @@
 package app;
 
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
 import entities.Chamado;
 import entities.Computador;
 import entities.Tecnico;
@@ -85,5 +88,37 @@ public class Application {
 		System.out.println();
 		
 		/*------------ Missão 5 ------------*/
+		
+		Scanner sc = new Scanner(System.in);
+		
+		Chamado c1 = new Chamado(123, "Limpeza da placa", "Aguardando", pc, tecnico);
+		Chamado c2 = new Chamado(456, "Troca de memoria RAM", "Em manutenção", pc, tecnico);
+		Chamado c3 = new Chamado(789, "Troca de placa de video", "Finalizado", pc, tecnico);
+		
+		try {
+            System.out.println("Digite o numero do chamado que deseja buscar:");
+            int buscarChamado = sc.nextInt();
+
+            if (buscarChamado == c1.getNumero()) {
+                System.out.println(c1);
+
+            } else if (buscarChamado == c2.getNumero()) {
+                System.out.println(c2);
+
+            } else if (buscarChamado == c3.getNumero()) {
+                System.out.println(c3);
+
+            } else {
+                System.out.println("Chamado não encontrado!");
+            }
+
+        } catch (InputMismatchException e) {
+            System.out.println("Erro: digite um número inteiro válido!");
+        }
+
+        System.out.println("Total de chamados cadastrados: "
+                + Chamado.getTotalChamados());
+
+        sc.close();
 	}
 }
